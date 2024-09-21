@@ -77,7 +77,7 @@ function createModal() {
 }
 
 async function downloadNovel(title, episodeLinks, startEpisode) {
-    let novelText = `${title}\n\nDownloaded with novel-dl,\nhttps://github.com/yeorinhieut/novel-dl\n`;
+    let novelText = `${title}\n\n`;
     const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
     const {modal, modalContent} = createModal();
     document.body.appendChild(modal);
@@ -133,8 +133,9 @@ ${episodeUrl}.
                 continue;
             }
         }
-
+        novelText +='\n ===\n'
         novelText += episodeContent;
+        
 
         const progress = ((startingIndex - i + 1) / (startingIndex + 1)) * 100;
         progressBar.style.width = `${progress}%`;
